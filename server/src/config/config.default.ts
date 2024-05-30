@@ -33,12 +33,11 @@ export default {
       },
     },
   },
-  // redis: {
-  //   client: {
-  //     port: 6379, // Redis port
-  //     host: 'localhost', // Redis host
-  //     password: '123456',
-  //     db: 0,
-  //   },
-  // },
+  i18n: {
+    // 把你的翻译文本放到这里
+    localeTable: {
+      en_US: require('../locales/en_US'),
+      zh_CN: require('../locales/zh_CN'),
+    },
+  },
 } as MidwayConfig;

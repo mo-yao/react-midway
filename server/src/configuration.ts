@@ -9,6 +9,9 @@ import * as redis from '@midwayjs/redis';
 // import { NotFoundFilter } from './filter/notfound.filter';
 import { ReportMiddleware } from './middleware/report.middleware';
 import * as swagger from '@midwayjs/swagger';
+import * as i18n from '@midwayjs/i18n';
+import { ValidateErrorFilter } from './filter/validate.filter';
+import { CommonErrorFilter } from './filter/common.filter';
 
 @Configuration({
   imports: [
@@ -16,14 +19,15 @@ import * as swagger from '@midwayjs/swagger';
     validate,
     orm,
     redis,
+    i18n,
     {
       component: info,
       enabledEnvironment: ['local'],
     },
     {
       component: swagger,
-      enabledEnvironment: ['local']
-    }
+      enabledEnvironment: ['local'],
+    },
   ],
   importConfigs: [join(__dirname, './config')],
 })
@@ -35,6 +39,6 @@ export class MainConfiguration {
     // add middleware
     this.app.useMiddleware([ReportMiddleware]);
     // add filter
-    // this.app.useFilter([NotFoundFilter, DefaultErrorFilter]);
+    this.app.useFilter([ValidateErrorFilter,CommonErrorFilter]);
   }
 }
