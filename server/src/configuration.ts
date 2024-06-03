@@ -12,6 +12,8 @@ import * as swagger from '@midwayjs/swagger';
 import * as i18n from '@midwayjs/i18n';
 import { ValidateErrorFilter } from './filter/validate.filter';
 import { CommonErrorFilter } from './filter/common.filter';
+import * as captcha from '@midwayjs/captcha';
+import * as cache from '@midwayjs/cache';
 
 @Configuration({
   imports: [
@@ -19,7 +21,9 @@ import { CommonErrorFilter } from './filter/common.filter';
     validate,
     orm,
     redis,
+    cache,
     i18n,
+    captcha,
     {
       component: info,
       enabledEnvironment: ['local'],
