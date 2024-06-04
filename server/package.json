@@ -5,8 +5,10 @@
   "private": true,
   "dependencies": {
     "@midwayjs/bootstrap": "^3.12.0",
+    "@midwayjs/bull": "^3.16.2",
     "@midwayjs/cache": "^3.14.0",
     "@midwayjs/captcha": "^3.16.2",
+    "@midwayjs/casbin": "^3.16.2",
     "@midwayjs/core": "^3.12.0",
     "@midwayjs/decorator": "^3.16.0",
     "@midwayjs/i18n": "^3.16.1",
@@ -16,11 +18,17 @@
     "@midwayjs/redis": "^3.16.0",
     "@midwayjs/swagger": "^3.16.1",
     "@midwayjs/typeorm": "^3.16.0",
+    "@midwayjs/upload": "^3.16.2",
     "@midwayjs/validate": "^3.16.1",
+    "@midwayjs/ws": "^3.16.2",
     "bcryptjs": "^2.4.3",
+    "cache-manager-ioredis": "^2.1.0",
+    "ip2region": "^2.3.0",
     "mysql2": "^3.9.9",
     "node-rsa": "^1.1.1",
-    "typeorm": "^0.3.20"
+    "nodemailer": "^6.9.13",
+    "typeorm": "^0.3.20",
+    "useragent": "^2.3.0"
   },
   "devDependencies": {
     "@midwayjs/mock": "^3.12.0",

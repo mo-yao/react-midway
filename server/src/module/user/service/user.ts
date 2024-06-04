@@ -51,6 +51,11 @@ export class UserService extends BaseService<UserEntity> {
     return omit(entity, ['password']) as UserVO;
   }
 
+
+  async getByEmail(email: string) {
+    return await this.userModel.findOneBy({ email });
+  }
+
   async edit(entity: UserEntity): Promise<void | UserVO> {
     const { userName, phoneNumber, email, id } = entity;
     let user = await this.userModel.findOneBy({ userName });

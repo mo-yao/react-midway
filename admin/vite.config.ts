@@ -16,18 +16,18 @@ export default defineConfig({
         target: "http://localhost:7001",
         changeOrigin: true,
         rewrite:  (path) => path.replace(/^\/api/, "")
+      },
+      "/file": {
+        target: "http://localhost:9002",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/file/, "")
+      },
+      "/ws": {
+        target: "ws://localhost:7001",
+        changeOrigin: true,
+        ws: true,
+        rewrite: (path) => path.replace(/^\/ws/, "")
       }
-      // "/file": {
-      //   target: "http://localhost:9002",
-      //   changeOrigin: true,
-      //   rewrite: (path) => path.replace(/^\/file/, "")
-      // },
-      // "/ws": {
-      //   target: "ws://localhost:7001",
-      //   changeOrigin: true,
-      //   ws: true,
-      //   rewrite: (path) => path.replace(/^\/ws/, "")
-      // }
     }
   }
 });

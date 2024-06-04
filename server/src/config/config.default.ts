@@ -1,5 +1,8 @@
 import { MidwayConfig } from '@midwayjs/core';
-
+import { TokenConfig } from '../interface/token.config';
+import * as redisStore from 'cache-manager-ioredis';
+import { env } from 'process';
+import { MailConfig } from '../interface';
 export default {
   // use for cookie sign key, should change to your own and keep security
   keys: '1716986839274_1098',
@@ -40,4 +43,43 @@ export default {
       zh_CN: require('../locales/zh_CN'),
     },
   },
+  token: {
+    expire: 60 * 60 * 2, // 2小时
+    refreshExpire: 60 * 60 * 24 * 7, // 7天
+  } as TokenConfig,
+  cache: {
+    store: redisStore,
+    options: {
+      host: env.REDIS_HOST || 'localhost', // default value
+      port: 6379, // default value
+      password: env.REDIS_PASSWORD || '',
+      db: 0,
+      keyPrefix: 'cache:',
+      ttl: 100,
+    },
+  },
+  captcha: {
+    default: {
+      size: 4,
+      noise: 1,
+      width: 120,
+      height: 40,
+    },
+    image: {
+      type: 'mixed',
+    },
+    formula: {},
+    text: {},
+    expirationTime: 3600,
+    idPrefix: 'captcha',
+  },
+  mail: {
+    host: env.MAIL_HOST || 'smtp.qq.com',
+    port: env.MAIL_PORT ? Number(env.MAIL_PORT) : 465,
+    secure: true,
+    auth: {
+      user: env.MAIL_USER,
+      pass: env.MAIL_PASS,
+    },
+  } as MailConfig,
 } as MidwayConfig;

@@ -14,7 +14,7 @@ import { ValidateErrorFilter } from './filter/validate.filter';
 import { CommonErrorFilter } from './filter/common.filter';
 import * as captcha from '@midwayjs/captcha';
 import * as cache from '@midwayjs/cache';
-
+// import * as ws from '@midwayjs/ws';
 @Configuration({
   imports: [
     koa,
@@ -24,6 +24,7 @@ import * as cache from '@midwayjs/cache';
     cache,
     i18n,
     captcha,
+
     {
       component: info,
       enabledEnvironment: ['local'],
